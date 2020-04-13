@@ -1,0 +1,32 @@
+CI		
+		XR2206 	*1	ok	symbol + footprint ok
+		ATTINY84*1	ok	a faire
+		
+Ampli	
+		LM356	*1	ok	symbol + footprint ok
+		uA741	*1	ok	symbol + footprint ok
+		
+Resistance
+		56	*1	ok	symbol	
+		2.2k	*1	ok	symbol
+		8.2k	*2	ok	symbol
+		10k	*1	ok	symbol
+		22k	*2	ok	symbol
+potentiomètre
+		500	*2		symbol
+		1k	*1		symbol
+		10k	*3		symbol
+		22k	*1		symbol
+		100k	*2		symbol
+condensateur
+		1n	*1	ok	symbol	ok
+		10n	*1	ok	symbol	ok
+		100n	*1	ok	symbol	ok
+		1µ	*1	ok 	symbol	ok
+		2,2µ	*2	ok	symbol	
+		10µ	*1	ok	symbol
+condensateur polarisé 
+		10µ		ok	symbol	ok
+		100µ		ok	symbol	ok
+		2,2µ		ok	symbol	ok
+		

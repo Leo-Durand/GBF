@@ -1,0 +1,141 @@
+EESchema Schematic File Version 4
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Connector_Generic:Conn_01x08 J1
+U 1 1 5E4AE134
+P 4050 3250
+F 0 "J1" H 3970 3767 50  0000 C CNN
+F 1 "Conn_01x08" H 3970 3676 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 4050 3250 50  0001 C CNN
+F 3 "~" H 4050 3250 50  0001 C CNN
+	1    4050 3250
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x08 J2
+U 1 1 5E4AE1A7
+P 7850 3200
+F 0 "J2" H 7930 3192 50  0000 L CNN
+F 1 "Conn_01x08" H 7930 3101 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 7850 3200 50  0001 C CNN
+F 3 "~" H 7850 3200 50  0001 C CNN
+	1    7850 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L CD74HC4052PWR~VRAI:CD74HC4052PWR U1
+U 1 1 5E4B04C8
+P 5950 3400
+F 0 "U1" H 5950 4365 50  0000 C CNN
+F 1 "CD74HC4052PWR" H 5950 4274 50  0000 C CNN
+F 2 "Package_SO:HTSSOP-16-1EP_4.4x5mm_P0.65mm_EP3.4x5mm" H 5500 4100 50  0001 L BNN
+F 3 "TSSOP-16" H 5750 3700 50  0001 L BNN
+F 4 "-" H 5950 3400 50  0001 L BNN "Champ4"
+F 5 "CD74HC4052PWR" H 5650 3600 50  0001 L BNN "Champ5"
+F 6 "1753506" H 5800 3500 50  0001 L BNN "Champ6"
+F 7 "Texas Instruments" H 5600 3400 50  0001 L BNN "Champ7"
+	1    5950 3400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5250 2750 4400 2750
+Wire Wire Line
+	4400 2750 4400 2950
+Wire Wire Line
+	4400 2950 4250 2950
+Wire Wire Line
+	5250 2900 4500 2900
+Wire Wire Line
+	4500 2900 4500 3050
+Wire Wire Line
+	4500 3050 4250 3050
+Wire Wire Line
+	5250 3050 4600 3050
+Wire Wire Line
+	4600 3050 4600 3150
+Wire Wire Line
+	4600 3150 4250 3150
+Wire Wire Line
+	5250 3200 4500 3200
+Wire Wire Line
+	4500 3200 4500 3250
+Wire Wire Line
+	4500 3250 4250 3250
+Wire Wire Line
+	5250 3350 4250 3350
+Wire Wire Line
+	5250 3500 4500 3500
+Wire Wire Line
+	4500 3500 4500 3450
+Wire Wire Line
+	4500 3450 4250 3450
+Wire Wire Line
+	5250 3650 4450 3650
+Wire Wire Line
+	4450 3650 4450 3550
+Wire Wire Line
+	4450 3550 4250 3550
+Wire Wire Line
+	5250 3800 4350 3800
+Wire Wire Line
+	4350 3800 4350 3650
+Wire Wire Line
+	4350 3650 4250 3650
+Wire Wire Line
+	6650 2750 7550 2750
+Wire Wire Line
+	7550 2750 7550 2900
+Wire Wire Line
+	7550 2900 7650 2900
+Wire Wire Line
+	6650 2900 7450 2900
+Wire Wire Line
+	7450 2900 7450 3000
+Wire Wire Line
+	7450 3000 7650 3000
+Wire Wire Line
+	6650 3050 7400 3050
+Wire Wire Line
+	7400 3050 7400 3100
+Wire Wire Line
+	7400 3100 7650 3100
+Wire Wire Line
+	6650 3200 7650 3200
+Wire Wire Line
+	6650 3350 7050 3350
+Wire Wire Line
+	7050 3350 7050 3300
+Wire Wire Line
+	7050 3300 7650 3300
+Wire Wire Line
+	6650 3500 7100 3500
+Wire Wire Line
+	7100 3500 7100 3400
+Wire Wire Line
+	7100 3400 7650 3400
+Wire Wire Line
+	6650 3650 7250 3650
+Wire Wire Line
+	7250 3650 7250 3500
+Wire Wire Line
+	7250 3500 7650 3500
+Wire Wire Line
+	6650 3800 7350 3800
+Wire Wire Line
+	7350 3800 7350 3600
+Wire Wire Line
+	7350 3600 7650 3600
+$EndSCHEMATC

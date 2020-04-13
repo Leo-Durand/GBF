@@ -1,0 +1,246 @@
+
+TEST ATTINY84.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000e2  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  00000136  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  00000136  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000168  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000020  00000000  00000000  000001a4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000004ce  00000000  00000000  000001c4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000044f  00000000  00000000  00000692  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000290  00000000  00000000  00000ae1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000024  00000000  00000000  00000d74  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000002b4  00000000  00000000  00000d98  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000061  00000000  00000000  0000104c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000010  00000000  00000000  000010ad  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	10 c0       	rjmp	.+32     	; 0x22 <__ctors_end>
+   2:	17 c0       	rjmp	.+46     	; 0x32 <__bad_interrupt>
+   4:	16 c0       	rjmp	.+44     	; 0x32 <__bad_interrupt>
+   6:	15 c0       	rjmp	.+42     	; 0x32 <__bad_interrupt>
+   8:	14 c0       	rjmp	.+40     	; 0x32 <__bad_interrupt>
+   a:	13 c0       	rjmp	.+38     	; 0x32 <__bad_interrupt>
+   c:	12 c0       	rjmp	.+36     	; 0x32 <__bad_interrupt>
+   e:	11 c0       	rjmp	.+34     	; 0x32 <__bad_interrupt>
+  10:	10 c0       	rjmp	.+32     	; 0x32 <__bad_interrupt>
+  12:	0f c0       	rjmp	.+30     	; 0x32 <__bad_interrupt>
+  14:	0e c0       	rjmp	.+28     	; 0x32 <__bad_interrupt>
+  16:	0d c0       	rjmp	.+26     	; 0x32 <__bad_interrupt>
+  18:	0c c0       	rjmp	.+24     	; 0x32 <__bad_interrupt>
+  1a:	0b c0       	rjmp	.+22     	; 0x32 <__bad_interrupt>
+  1c:	0a c0       	rjmp	.+20     	; 0x32 <__bad_interrupt>
+  1e:	09 c0       	rjmp	.+18     	; 0x32 <__bad_interrupt>
+  20:	08 c0       	rjmp	.+16     	; 0x32 <__bad_interrupt>
+
+00000022 <__ctors_end>:
+  22:	11 24       	eor	r1, r1
+  24:	1f be       	out	0x3f, r1	; 63
+  26:	cf e5       	ldi	r28, 0x5F	; 95
+  28:	d2 e0       	ldi	r29, 0x02	; 2
+  2a:	de bf       	out	0x3e, r29	; 62
+  2c:	cd bf       	out	0x3d, r28	; 61
+  2e:	02 d0       	rcall	.+4      	; 0x34 <main>
+  30:	56 c0       	rjmp	.+172    	; 0xde <_exit>
+
+00000032 <__bad_interrupt>:
+  32:	e6 cf       	rjmp	.-52     	; 0x0 <__vectors>
+
+00000034 <main>:
+#include <avr/io.h>
+
+
+int main(void)
+{
+	DDRA = 0xFF;																				//assignation I/O et declaration variables
+  34:	8f ef       	ldi	r24, 0xFF	; 255
+  36:	8a bb       	out	0x1a, r24	; 26
+	PORTA = 0x00;
+  38:	1b ba       	out	0x1b, r1	; 27
+	DDRB = 0x2;
+  3a:	82 e0       	ldi	r24, 0x02	; 2
+  3c:	87 bb       	out	0x17, r24	; 23
+	char i = 0;
+	char f = 0;
+  3e:	90 e0       	ldi	r25, 0x00	; 0
+int main(void)
+{
+	DDRA = 0xFF;																				//assignation I/O et declaration variables
+	PORTA = 0x00;
+	DDRB = 0x2;
+	char i = 0;
+  40:	80 e0       	ldi	r24, 0x00	; 0
+	char f = 0;
+    while (1) 
+    {
+		if((PORTB & (1<<PORTB0)) == 0){															//selection forme du signal
+  42:	c0 99       	sbic	0x18, 0	; 24
+  44:	06 c0       	rjmp	.+12     	; 0x52 <__SREG__+0x13>
+			while((PORTB & (1<<PORTB0)) != 0);
+  46:	c0 99       	sbic	0x18, 0	; 24
+  48:	fe cf       	rjmp	.-4      	; 0x46 <__SREG__+0x7>
+			if(i == 5){
+  4a:	85 30       	cpi	r24, 0x05	; 5
+  4c:	09 f4       	brne	.+2      	; 0x50 <__SREG__+0x11>
+  4e:	44 c0       	rjmp	.+136    	; 0xd8 <__SREG__+0x99>
+				i = 0;
+			}
+			else{
+				i++;
+  50:	8f 5f       	subi	r24, 0xFF	; 255
+				}	
+			}
+		if((PORTB & (1<<PORTB1)) == 0){															//selection fréquence
+  52:	c1 99       	sbic	0x18, 1	; 24
+  54:	1c c0       	rjmp	.+56     	; 0x8e <__SREG__+0x4f>
+  56:	01 c0       	rjmp	.+2      	; 0x5a <__SREG__+0x1b>
+    while (1) 
+    {
+		if((PORTB & (1<<PORTB0)) == 0){															//selection forme du signal
+			while((PORTB & (1<<PORTB0)) != 0);
+			if(i == 5){
+				i = 0;
+  58:	80 e0       	ldi	r24, 0x00	; 0
+			else{
+				i++;
+				}	
+			}
+		if((PORTB & (1<<PORTB1)) == 0){															//selection fréquence
+			while((PORTB & (1<<PORTB1)) != 0);
+  5a:	c1 99       	sbic	0x18, 1	; 24
+  5c:	fe cf       	rjmp	.-4      	; 0x5a <__SREG__+0x1b>
+			if(f == 4){
+  5e:	94 30       	cpi	r25, 0x04	; 4
+  60:	49 f0       	breq	.+18     	; 0x74 <__SREG__+0x35>
+				f = 0;
+			}
+			else{
+				f++;
+  62:	9f 5f       	subi	r25, 0xFF	; 255
+			}
+		switch(f){																				//choix fréquence
+  64:	91 30       	cpi	r25, 0x01	; 1
+  66:	51 f0       	breq	.+20     	; 0x7c <__SREG__+0x3d>
+  68:	28 f0       	brcs	.+10     	; 0x74 <__SREG__+0x35>
+  6a:	92 30       	cpi	r25, 0x02	; 2
+  6c:	51 f0       	breq	.+20     	; 0x82 <__SREG__+0x43>
+  6e:	93 30       	cpi	r25, 0x03	; 3
+  70:	59 f0       	breq	.+22     	; 0x88 <__SREG__+0x49>
+  72:	0d c0       	rjmp	.+26     	; 0x8e <__SREG__+0x4f>
+			case 0:																				//110 Hz
+				PORTA &= ((~(1<< PORTA0))|(~(1<< PORTA1))); 
+  74:	9b b3       	in	r25, 0x1b	; 27
+  76:	9b bb       	out	0x1b, r25	; 27
+			break;
+  78:	90 e0       	ldi	r25, 0x00	; 0
+  7a:	09 c0       	rjmp	.+18     	; 0x8e <__SREG__+0x4f>
+			case 1:																				//1100 Hz
+				PORTA |= (1<<PORTA0);
+  7c:	d8 9a       	sbi	0x1b, 0	; 27
+				PORTA &= (~(1<<PORTA1));
+  7e:	d9 98       	cbi	0x1b, 1	; 27
+			break;
+  80:	06 c0       	rjmp	.+12     	; 0x8e <__SREG__+0x4f>
+			case 2:																				//11 kHz
+				PORTA |= (1<<PORTA1);
+  82:	d9 9a       	sbi	0x1b, 1	; 27
+				PORTA &= (~(1<<PORTA0));
+  84:	d8 98       	cbi	0x1b, 0	; 27
+			break;
+  86:	03 c0       	rjmp	.+6      	; 0x8e <__SREG__+0x4f>
+			case 3:																				//110 KHz
+				PORTA |= ((1<<PORTA0) | (1<<PORTA1));
+  88:	2b b3       	in	r18, 0x1b	; 27
+  8a:	23 60       	ori	r18, 0x03	; 3
+  8c:	2b bb       	out	0x1b, r18	; 27
+			break;
+		}
+		}			
+		switch(i){																				//choix forme du signal
+  8e:	82 30       	cpi	r24, 0x02	; 2
+  90:	99 f0       	breq	.+38     	; 0xb8 <__SREG__+0x79>
+  92:	28 f4       	brcc	.+10     	; 0x9e <__SREG__+0x5f>
+  94:	88 23       	and	r24, r24
+  96:	41 f0       	breq	.+16     	; 0xa8 <__SREG__+0x69>
+  98:	81 30       	cpi	r24, 0x01	; 1
+  9a:	51 f0       	breq	.+20     	; 0xb0 <__SREG__+0x71>
+  9c:	d2 cf       	rjmp	.-92     	; 0x42 <__SREG__+0x3>
+  9e:	83 30       	cpi	r24, 0x03	; 3
+  a0:	89 f0       	breq	.+34     	; 0xc4 <__SREG__+0x85>
+  a2:	84 30       	cpi	r24, 0x04	; 4
+  a4:	a9 f0       	breq	.+42     	; 0xd0 <__SREG__+0x91>
+  a6:	cd cf       	rjmp	.-102    	; 0x42 <__SREG__+0x3>
+			case 0:																				//signal carré
+				PORTA &=((~(1<<PORTA2))|(~(1<<PORTA3))|(~(1<<PORTA4))|(~(1<<PORTA5))); 			//xx0000xx (etat des ports)
+  a8:	8b b3       	in	r24, 0x1b	; 27
+  aa:	8b bb       	out	0x1b, r24	; 27
+			break;
+  ac:	80 e0       	ldi	r24, 0x00	; 0
+  ae:	c9 cf       	rjmp	.-110    	; 0x42 <__SREG__+0x3>
+			case 1:																				//signal sinusoidal
+				PORTA |= (1<<PORTA3);
+  b0:	db 9a       	sbi	0x1b, 3	; 27
+				PORTA &= ((~(1<<PORTA2))|(~(1<<PORTA4))|(~(1<<PORTA5)));						//xx0010xx
+  b2:	2b b3       	in	r18, 0x1b	; 27
+  b4:	2b bb       	out	0x1b, r18	; 27
+			break;
+  b6:	c5 cf       	rjmp	.-118    	; 0x42 <__SREG__+0x3>
+			case 2:																				//signal triangulaire
+				PORTA |= ((1<<PORTA3)|(1<<PORTA4));
+  b8:	2b b3       	in	r18, 0x1b	; 27
+  ba:	28 61       	ori	r18, 0x18	; 24
+  bc:	2b bb       	out	0x1b, r18	; 27
+				PORTA &= ((~(1<<PORTA2))|(~(1<<PORTA5))); 										//xx0110xx
+  be:	2b b3       	in	r18, 0x1b	; 27
+  c0:	2b bb       	out	0x1b, r18	; 27
+			break;
+  c2:	bf cf       	rjmp	.-130    	; 0x42 <__SREG__+0x3>
+			case 3:																				//signal rampe
+				PORTA |= ((1<<PORTA3)|(1<<PORTA5));
+  c4:	2b b3       	in	r18, 0x1b	; 27
+  c6:	28 62       	ori	r18, 0x28	; 40
+  c8:	2b bb       	out	0x1b, r18	; 27
+				PORTA &= ((~(1<<PORTA2))|(~(1<<PORTA4)));										//xx1010xx
+  ca:	2b b3       	in	r18, 0x1b	; 27
+  cc:	2b bb       	out	0x1b, r18	; 27
+			break;
+  ce:	b9 cf       	rjmp	.-142    	; 0x42 <__SREG__+0x3>
+			case 4:																				//signal pulse
+				PORTA |= (1<<PORTA5);
+  d0:	dd 9a       	sbi	0x1b, 5	; 27
+				PORTA &=((~(1<<PORTA2))|(~(1<<PORTA3))|(~(1<<PORTA4)));							//xx1000xx
+  d2:	2b b3       	in	r18, 0x1b	; 27
+  d4:	2b bb       	out	0x1b, r18	; 27
+			break;
+  d6:	b5 cf       	rjmp	.-150    	; 0x42 <__SREG__+0x3>
+			}
+			else{
+				i++;
+				}	
+			}
+		if((PORTB & (1<<PORTB1)) == 0){															//selection fréquence
+  d8:	c1 9b       	sbis	0x18, 1	; 24
+  da:	be cf       	rjmp	.-132    	; 0x58 <__SREG__+0x19>
+  dc:	e5 cf       	rjmp	.-54     	; 0xa8 <__SREG__+0x69>
+
+000000de <_exit>:
+  de:	f8 94       	cli
+
+000000e0 <__stop_program>:
+  e0:	ff cf       	rjmp	.-2      	; 0xe0 <__stop_program>

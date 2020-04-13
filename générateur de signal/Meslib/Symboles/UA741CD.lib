@@ -1,0 +1,41 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#(c) SnapEDA 2016 (snapeda.com)
+#This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA) with Design Exception 1.0
+#
+# UA741CD
+#
+DEF UA741CD U 0 40 Y N 1 L N
+F0 "U" 200 125 50 H V L BNN
+F1 "UA741CD" 200 -200 50 H V L BNN
+F2 "SOIC127P600X175-8N" 0 0 50 H I L BNN
+F3 "UA741C" 0 0 50 H I L BNN
+F4 "None" 0 0 50 H I L BNN
+F5 "STMicroelectronics" 0 0 50 H I L BNN
+F6 "SOIC-8 STMicroelectronics" 0 0 50 H I L BNN
+F7 "Semiconductors and Actives, integrated" 0 0 50 H I L BNN
+F8 "Unavailable" 0 0 50 H I L BNN
+DRAW
+P 2 0 0 16 -200 200 -200 -200 N
+P 2 0 0 16 -200 -200 -100 -150 N
+P 2 0 0 16 -100 -150 200 0 N
+P 2 0 0 16 200 0 -100 150 N
+P 2 0 0 16 -100 150 -200 200 N
+P 2 0 0 6 -150 125 -150 75 N
+P 2 0 0 6 -175 100 -125 100 N
+P 2 0 0 6 -175 -100 -125 -100 N
+T 900 -50 165 32 0 0 0 V+ Normal 0 L B
+T 900 -50 -195 32 0 0 0 V- Normal 0 L B
+P 2 0 0 6 -100 -200 -100 -150 N
+P 2 0 0 6 -100 200 -100 150 N
+X INVERTING_INPUT 2 -300 -100 100 R 40 40 0 0 I 
+X NON-INVERTING_INPUT 3 -300 100 100 R 40 40 0 0 I 
+X OUTPUT 6 300 0 100 L 40 40 0 0 O 
+X VCC+ 7 -100 300 100 D 40 40 0 0 W 
+X VCC- 4 -100 -300 100 U 40 40 0 0 W 
+X OFFSET_NULL_2 5 0 -300 200 U 40 40 0 0 P 
+X OFFSET_NULL_1 1 0 300 200 D 40 40 0 0 P 
+ENDDRAW
+ENDDEF
+#
+# End Library
